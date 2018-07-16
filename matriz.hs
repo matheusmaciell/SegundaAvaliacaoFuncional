@@ -1,13 +1,10 @@
+{-# LANGUAGE OverloadedStrings #-}
+import Web.Scotty
 import Data.List
-import System.Directory
+
 
 data Matrix a = Matrix [[a]] | Nil
               deriving (Eq)
-
-
-instance (Show a) => Show (Matrix a) where
-	show (Matrix a) = printString (Matrix a)
-	show (Nil) = "Nil"
 
 instance (Num a)=>Num (Matrix a) where
 	(*) _ Nil = Nil
@@ -19,22 +16,17 @@ instance (Num a)=>Num (Matrix a) where
 	(-) (Matrix x) (Matrix y) = subMatrix (Matrix x) (Matrix y)
 	(-) _ Nil = Nil
 	(-)	Nil _ = Nil
+instance (Show a) => Show (Matrix a) where
+	show (Matrix a) = printString (Matrix a)
+	show (Nil) = "Nil"
+main = scotty 3000 $ do
+  get "/" $ do
+        let a = Matrix [[1,2],[3,2]]
+        let b = Matrix [[1,2],[1,1]]
+	
+        let confirmacao = verificaMultiplicacao a b
+        text "confirmacao"
 
-main:: IO()
-main = do 
-
-
-	let a = Matrix [[1,2],[3,2]]
-	let b = Matrix [[1,2],[1,1]]
-	
-	let confirmacao = verificaMultiplicacao a b
-	
-	if(confirmacao) then do 
-		printMatrix (multiplyMatrix a b)
-	else do
-		putStrLn "Formato invalido"
-	
-	
 verificaMultiplicacao:: (Matrix a) -> (Matrix a) -> Bool
 verificaMultiplicacao a b
 		| (snd(getDimension a)) == (fst( getDimension b)) = True
@@ -173,15 +165,3 @@ subMatrix (Matrix m1) (Matrix m2) = addMatrix (Matrix m1) (scalarMult (-1) (Matr
 getSublist :: [a] -> Int -> [a]
 getSublist [] _ = []
 getSublist (x:xs) skip | skip == 0 = (x:xs)
-					   | otherwise = getSublist xs (skip-1)
-
-
-
-
-
-
-	
-	
-	
-	
-

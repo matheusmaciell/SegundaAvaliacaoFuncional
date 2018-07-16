@@ -1,0 +1,25 @@
+Configuring streaming-commons-0.2.1.0...
+Building streaming-commons-0.2.1.0...
+Preprocessing library streaming-commons-0.2.1.0...
+[ 1 of 16] Compiling Data.Streaming.Zlib.Lowlevel ( Data/Streaming/Zlib/Lowlevel.hs, dist/dist-sandbox-8129852a/build/Data/Streaming/Zlib/Lowlevel.o )
+[ 2 of 16] Compiling Data.Streaming.Zlib ( Data/Streaming/Zlib.hs, dist/dist-sandbox-8129852a/build/Data/Streaming/Zlib.o )
+[ 3 of 16] Compiling Data.Text.Internal.Unsafe.Shift ( Data/Text/Internal/Unsafe/Shift.hs, dist/dist-sandbox-8129852a/build/Data/Text/Internal/Unsafe/Shift.o )
+[ 4 of 16] Compiling Data.Text.Internal.Unsafe.Char ( Data/Text/Internal/Unsafe/Char.hs, dist/dist-sandbox-8129852a/build/Data/Text/Internal/Unsafe/Char.o )
+[ 5 of 16] Compiling Data.Text.Internal.Encoding.Utf8 ( Data/Text/Internal/Encoding/Utf8.hs, dist/dist-sandbox-8129852a/build/Data/Text/Internal/Encoding/Utf8.o )
+[ 6 of 16] Compiling Data.Text.Internal.Encoding.Utf32 ( Data/Text/Internal/Encoding/Utf32.hs, dist/dist-sandbox-8129852a/build/Data/Text/Internal/Encoding/Utf32.o )
+[ 7 of 16] Compiling Data.Text.Internal.Encoding.Utf16 ( Data/Text/Internal/Encoding/Utf16.hs, dist/dist-sandbox-8129852a/build/Data/Text/Internal/Encoding/Utf16.o )
+[ 8 of 16] Compiling Data.Streaming.Text ( Data/Streaming/Text.hs, dist/dist-sandbox-8129852a/build/Data/Streaming/Text.o )
+[ 9 of 16] Compiling Data.Streaming.Process.Internal ( Data/Streaming/Process/Internal.hs, dist/dist-sandbox-8129852a/build/Data/Streaming/Process/Internal.o )
+[10 of 16] Compiling Data.Streaming.Process ( Data/Streaming/Process.hs, dist/dist-sandbox-8129852a/build/Data/Streaming/Process.o )
+[11 of 16] Compiling Data.Streaming.Network.Internal ( Data/Streaming/Network/Internal.hs, dist/dist-sandbox-8129852a/build/Data/Streaming/Network/Internal.o )
+[12 of 16] Compiling Data.Streaming.Network ( Data/Streaming/Network.hs, dist/dist-sandbox-8129852a/build/Data/Streaming/Network.o )
+[13 of 16] Compiling Data.Streaming.Filesystem ( Data/Streaming/Filesystem.hs, dist/dist-sandbox-8129852a/build/Data/Streaming/Filesystem.o )
+[14 of 16] Compiling Data.Streaming.FileRead ( Data/Streaming/FileRead.hs, dist/dist-sandbox-8129852a/build/Data/Streaming/FileRead.o )
+[15 of 16] Compiling Data.Streaming.ByteString.Builder.Buffer ( Data/Streaming/ByteString/Builder/Buffer.hs, dist/dist-sandbox-8129852a/build/Data/Streaming/ByteString/Builder/Buffer.o )
+[16 of 16] Compiling Data.Streaming.ByteString.Builder ( Data/Streaming/ByteString/Builder.hs, dist/dist-sandbox-8129852a/build/Data/Streaming/ByteString/Builder.o )
+In-place registering streaming-commons-0.2.1.0...
+Creating package registration file:
+/tmp/pkgConf-streaming-commons-0.2.1780821396619054081.0
+Installing library in
+/home/matheusms/PF/SegundaAvaliacaoFuncional/.cabal-sandbox/lib/x86_64-linux-ghc-7.10.3/streaming-commons-0.2.1.0-5lJ0DdCj9w57crii1TYM1n
+Registering streaming-commons-0.2.1.0...

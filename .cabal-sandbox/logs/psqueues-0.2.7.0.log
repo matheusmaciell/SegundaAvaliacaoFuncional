@@ -1,0 +1,36 @@
+Configuring psqueues-0.2.7.0...
+Building psqueues-0.2.7.0...
+Preprocessing library psqueues-0.2.7.0...
+[1 of 7] Compiling Data.BitUtil     ( src/Data/BitUtil.hs, dist/dist-sandbox-8129852a/build/Data/BitUtil.o )
+[2 of 7] Compiling Data.OrdPSQ.Internal ( src/Data/OrdPSQ/Internal.hs, dist/dist-sandbox-8129852a/build/Data/OrdPSQ/Internal.o )
+[3 of 7] Compiling Data.OrdPSQ      ( src/Data/OrdPSQ.hs, dist/dist-sandbox-8129852a/build/Data/OrdPSQ.o )
+[4 of 7] Compiling Data.IntPSQ.Internal ( src/Data/IntPSQ/Internal.hs, dist/dist-sandbox-8129852a/build/Data/IntPSQ/Internal.o )
+
+src/Data/IntPSQ/Internal.hs:66:1: Warning:
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+
+src/Data/IntPSQ/Internal.hs:70:1: Warning:
+    The import of ‘Data.Foldable’ is redundant
+      except perhaps to import instances from ‘Data.Foldable’
+    To import instances alone, use: import Data.Foldable()
+
+src/Data/IntPSQ/Internal.hs:75:1: Warning:
+    The import of ‘Data.Word’ is redundant
+      except perhaps to import instances from ‘Data.Word’
+    To import instances alone, use: import Data.Word()
+[5 of 7] Compiling Data.IntPSQ      ( src/Data/IntPSQ.hs, dist/dist-sandbox-8129852a/build/Data/IntPSQ.o )
+[6 of 7] Compiling Data.HashPSQ.Internal ( src/Data/HashPSQ/Internal.hs, dist/dist-sandbox-8129852a/build/Data/HashPSQ/Internal.o )
+
+src/Data/HashPSQ/Internal.hs:59:1: Warning:
+    The import of ‘Data.Foldable’ is redundant
+      except perhaps to import instances from ‘Data.Foldable’
+    To import instances alone, use: import Data.Foldable()
+[7 of 7] Compiling Data.HashPSQ     ( src/Data/HashPSQ.hs, dist/dist-sandbox-8129852a/build/Data/HashPSQ.o )
+In-place registering psqueues-0.2.7.0...
+Creating package registration file:
+/tmp/pkgConf-psqueues-0.2.717970739401756915667.0
+Installing library in
+/home/matheusms/PF/SegundaAvaliacaoFuncional/.cabal-sandbox/lib/x86_64-linux-ghc-7.10.3/psqueues-0.2.7.0-7E9SW0kpLtC4QnZodnkMX8
+Registering psqueues-0.2.7.0...

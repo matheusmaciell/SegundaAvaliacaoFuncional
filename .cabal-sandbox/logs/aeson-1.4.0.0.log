@@ -1,0 +1,43 @@
+Configuring aeson-1.4.0.0...
+Building aeson-1.4.0.0...
+Preprocessing library aeson-1.4.0.0...
+[ 1 of 24] Compiling Data.Aeson.Types.Generic ( Data/Aeson/Types/Generic.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Types/Generic.o )
+
+Data/Aeson/Types/Generic.hs:28:7: Warning:
+    The export item ‘IsRecord(..)’ suggests that
+    ‘IsRecord’ has (in-scope) constructors or class methods,
+    but it has none
+[ 2 of 24] Compiling Data.Aeson.Parser.UnescapePure ( pure/Data/Aeson/Parser/UnescapePure.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Parser/UnescapePure.o )
+[ 3 of 24] Compiling Data.Aeson.Internal.Functions ( Data/Aeson/Internal/Functions.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Internal/Functions.o )
+[ 4 of 24] Compiling Data.Aeson.Compat ( Data/Aeson/Compat.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Compat.o )
+[ 5 of 24] Compiling Data.Aeson.Parser.Unescape ( Data/Aeson/Parser/Unescape.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Parser/Unescape.o )
+[ 6 of 24] Compiling Data.Attoparsec.Time.Internal ( attoparsec-iso8601/Data/Attoparsec/Time/Internal.hs, dist/dist-sandbox-8129852a/build/Data/Attoparsec/Time/Internal.o )
+[ 7 of 24] Compiling Data.Attoparsec.Time ( attoparsec-iso8601/Data/Attoparsec/Time.hs, dist/dist-sandbox-8129852a/build/Data/Attoparsec/Time.o )
+[ 8 of 24] Compiling Data.Aeson.Internal.Time ( Data/Aeson/Internal/Time.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Internal/Time.o )
+[ 9 of 24] Compiling Data.Aeson.Types.Internal ( Data/Aeson/Types/Internal.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Types/Internal.o )
+[10 of 24] Compiling Data.Aeson.Encoding.Builder ( Data/Aeson/Encoding/Builder.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Encoding/Builder.o )
+[11 of 24] Compiling Data.Aeson.Encoding.Internal ( Data/Aeson/Encoding/Internal.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Encoding/Internal.o )
+[12 of 24] Compiling Data.Aeson.Parser.Time ( Data/Aeson/Parser/Time.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Parser/Time.o )
+[13 of 24] Compiling Data.Aeson.Parser.Internal ( Data/Aeson/Parser/Internal.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Parser/Internal.o )
+[14 of 24] Compiling Data.Aeson.Parser ( Data/Aeson/Parser.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Parser.o )
+[15 of 24] Compiling Data.Aeson.Encoding ( Data/Aeson/Encoding.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Encoding.o )
+[16 of 24] Compiling Data.Aeson.Types.ToJSON ( Data/Aeson/Types/ToJSON.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Types/ToJSON.o )
+
+Data/Aeson/Types/ToJSON.hs:69:1: Warning:
+    The import item ‘IsRecord(..)’ suggests that
+    ‘IsRecord’ has (in-scope) constructors or class methods,
+    but it has none
+[17 of 24] Compiling Data.Aeson.Types.FromJSON ( Data/Aeson/Types/FromJSON.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Types/FromJSON.o )
+[18 of 24] Compiling Data.Aeson.Types.Class ( Data/Aeson/Types/Class.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Types/Class.o )
+[19 of 24] Compiling Data.Aeson.Internal ( Data/Aeson/Internal.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Internal.o )
+[20 of 24] Compiling Data.Aeson.Types ( Data/Aeson/Types.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Types.o )
+[21 of 24] Compiling Data.Aeson.Text  ( Data/Aeson/Text.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Text.o )
+[22 of 24] Compiling Data.Aeson       ( Data/Aeson.hs, dist/dist-sandbox-8129852a/build/Data/Aeson.o )
+[23 of 24] Compiling Data.Aeson.TH    ( Data/Aeson/TH.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/TH.o )
+[24 of 24] Compiling Data.Aeson.Encode ( Data/Aeson/Encode.hs, dist/dist-sandbox-8129852a/build/Data/Aeson/Encode.o )
+In-place registering aeson-1.4.0.0...
+Creating package registration file:
+/tmp/pkgConf-aeson-1.4.05529102531671294892.0
+Installing library in
+/home/matheusms/PF/SegundaAvaliacaoFuncional/.cabal-sandbox/lib/x86_64-linux-ghc-7.10.3/aeson-1.4.0.0-0vRs2v3LR4BIi4STpuooJF
+Registering aeson-1.4.0.0...

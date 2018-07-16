@@ -1,0 +1,17 @@
+Configuring fast-logger-2.4.11...
+Building fast-logger-2.4.11...
+Preprocessing library fast-logger-2.4.11...
+[1 of 8] Compiling System.Log.FastLogger.LogStr ( System/Log/FastLogger/LogStr.hs, dist/dist-sandbox-8129852a/build/System/Log/FastLogger/LogStr.o )
+[2 of 8] Compiling System.Log.FastLogger.IORef ( System/Log/FastLogger/IORef.hs, dist/dist-sandbox-8129852a/build/System/Log/FastLogger/IORef.o )
+[3 of 8] Compiling System.Log.FastLogger.FileIO ( System/Log/FastLogger/FileIO.hs, dist/dist-sandbox-8129852a/build/System/Log/FastLogger/FileIO.o )
+[4 of 8] Compiling System.Log.FastLogger.IO ( System/Log/FastLogger/IO.hs, dist/dist-sandbox-8129852a/build/System/Log/FastLogger/IO.o )
+[5 of 8] Compiling System.Log.FastLogger.Logger ( System/Log/FastLogger/Logger.hs, dist/dist-sandbox-8129852a/build/System/Log/FastLogger/Logger.o )
+[6 of 8] Compiling System.Log.FastLogger.File ( System/Log/FastLogger/File.hs, dist/dist-sandbox-8129852a/build/System/Log/FastLogger/File.o )
+[7 of 8] Compiling System.Log.FastLogger.Date ( System/Log/FastLogger/Date.hs, dist/dist-sandbox-8129852a/build/System/Log/FastLogger/Date.o )
+[8 of 8] Compiling System.Log.FastLogger ( System/Log/FastLogger.hs, dist/dist-sandbox-8129852a/build/System/Log/FastLogger.o )
+In-place registering fast-logger-2.4.11...
+Creating package registration file:
+/tmp/pkgConf-fast-logger-2.419534433761876855542.11
+Installing library in
+/home/matheusms/PF/SegundaAvaliacaoFuncional/.cabal-sandbox/lib/x86_64-linux-ghc-7.10.3/fast-logger-2.4.11-L5IOZjuBpcpK4BvmoIjX0M
+Registering fast-logger-2.4.11...
