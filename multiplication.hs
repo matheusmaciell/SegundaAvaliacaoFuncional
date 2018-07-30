@@ -1,34 +1,15 @@
 import Data.List
 import Control.Parallel
-import System.TimeIt
 import Control.Exception
 import Data.Time
 
-parHelp :: ( Num a ) => [ a ] -> [ a ] -> a
-parHelp [] [] = 0
-parHelp ( x : xs ) ( y : ys ) = ret where
-        ret = par a ( pseq a ( a + parHelp xs ys ) ) where
-            a = x * y
-
-
-helpMult :: ( Num a ) => [ a ] -> [ [ a ] ] -> [ a ]
-helpMult _ [] = []
-helpMult x ( y : ys ) = ret where
-     ret =  par a ( pseq a  ( a : helpMult x ys ) ) where
-       a = parHelp x y
-
-
-mult :: ( Num a ) => [ [ a ] ] -> [ [ a ] ] -> [ [ a ] ]
-mult [] _ = []
-mult ( x : xs ) ys = ret where
-     ret = par a ( pseq a  ( a : mult xs ys ) ) where
-        a = helpMult x ys
 main:: IO()
 main = do
  putStrLn "Escolha uma das opções a seguir:"
  putStrLn "1: Multiplicacao sequencial"
  putStrLn "2: Multiplicacao com paralelismo"
  putStrLn "3: Comparacao do sequencial com o paralelismo"
+
 
  op <- getLine
  if(op == "1") then do
@@ -37,7 +18,7 @@ main = do
  putStrLn "Digite a segunda no mesmo formato."
  b <- getLine
  let r = multiplyMatrix  (Matrix (read a)) (Matrix (read b))
- printMatrix r
+ print r
  else if(op == "2") then do
  putStrLn "Digite a primeira matriz no seguindo formato: [[1,1],[1,1]] para uma matriz 2x2"
  a <- getLine
@@ -71,10 +52,8 @@ instance (Num a)=>Num (Matrix a) where
  (*) _ Nil = Nil
  (*) Nil _ = Nil
  (*) (Matrix x) (Matrix y) = multiplyMatrix (Matrix x) (Matrix y)
- (+) (Matrix x) (Matrix y) = addMatrix (Matrix x) (Matrix y)
  (+) _ Nil = Nil
  (+) Nil _ = Nil
- (-) (Matrix x) (Matrix y) = subMatrix (Matrix x) (Matrix y)
  (-) _ Nil = Nil
  (-)	Nil _ = Nil
 instance (Show a) => Show (Matrix a) where
@@ -86,8 +65,6 @@ verificaMultiplicacao a b
     | (snd(getDimension a)) == (fst( getDimension b)) = True
     |otherwise = False
 
-removeMatrix (Matrix a) = a
-
 splitEvery :: Int -> [a] -> [[a]]
 splitEvery _ [] = []
 splitEvery n xs = as : splitEvery n bs
@@ -96,11 +73,6 @@ splitEvery n xs = as : splitEvery n bs
 repeatMatrix :: Int -> Int -> a ->  (Matrix a)
 repeatMatrix row col value | row > 0 && col > 0 = Matrix (replicate row (replicate col value))
                | otherwise = Nil
-
-
-printMatrix :: Show a => Matrix a -> IO()
-printMatrix Nil = putStr ("~Undefined Matrix")
-printMatrix (Matrix matrix) = putStr(printString (Matrix matrix) )
 
 printString :: Show a => Matrix a -> String
 printString Nil = ""
@@ -115,7 +87,6 @@ buildRow (row,col) travR travC func | travC < col = [func (travR+1,travC+1)] ++ 
                   | travR+1 < row = buildRow (row,col) (travR+1) 0 func
                   | otherwise = []
 
-
 getDimension :: Matrix a -> (Int,Int)
 getDimension Nil = (0,0)
 getDimension (Matrix matrix) = (length(matrix),length(matrix!!0))
@@ -123,46 +94,13 @@ getDimension (Matrix matrix) = (length(matrix),length(matrix!!0))
 generateMatrix :: Int -> Int -> ((Int,Int) -> a) -> Matrix a
 generateMatrix row col genFunc =  Matrix (splitEvery col (buildRow (row,col) 0 0 genFunc))
 
-
 --identityMatrix :: Int -> Matrix Int
 identityMatrix dim | dim > 0 = generateMatrix dim dim (\(i,j) -> fromIntegral (fromEnum (i == j)))
            | otherwise = Nil
-
-
-scalarMult :: (Num a) => a -> Matrix a -> Matrix a
-scalarMult _ Nil = Nil
-scalarMult scalar (Matrix matrix) = generateMatrix (length matrix) (length (matrix!!0)) (\(i,j)-> ( (matrix!!(i-1))!!(j-1) ) * scalar)
-
-
-diagonalList :: Num a => Int -> [a] -> Matrix a
-diagonalList _ [] = Nil
-diagonalList n ls | n <= len = generateMatrix n n (\(i,j)-> (fromIntegral (fromEnum (i==j))*(ls!!(i-1))))
-          | n > len = diagonalList n (ls ++ (replicate diff zero))
-          where
-            len = length ls
-            diff = n - len
-            zero = (ls!!0) - (ls!!0)
-
-
-printMatrixList :: Show a =>  [[[a]]] -> IO()
-printMatrixList [] = putStrLn "~Empty List"
-printMatrixList (x:xs) = putStrLn ( (intercalate " " (map (\x -> printString (Matrix x)) (x:xs))) ++ show(length(x:xs))++" permutations")
-
-
-permMatrix :: Int -> IO()
-permMatrix 0 = putStrLn "~Matrix of dimension 0 DNE"
-permMatrix dim = printMatrixList (permutations (removeMatrix (identityMatrix dim)) )
-
 fromList :: Int -> Int -> [a] -> Matrix a
 fromList _ _ [] = Nil
 fromList row col (x:xs) | length(x:xs) >= row*col = generateMatrix row col (\(i,j)-> (x:xs)!!((i-1)*col+(j-1)))
             | otherwise = Nil
-
-indexMatrix :: (Num a) => Int -> Int -> Matrix a -> a
-indexMatrix row col (Matrix matrix) | row > 0 && row <= length(matrix) && col > 0 && col <= length (matrix!!0) = (matrix!!(row-1))!!(col-1)
-                      | otherwise = zero
-                      where
-                        zero = ((matrix!!0)!!0)-((matrix!!0)!!0)
 
 getRow :: Int -> Matrix a -> [a]
 getRow _ Nil = []
@@ -194,28 +132,21 @@ multiplyMatrixHelper row col m1 m2 | col < length(m2!!0) = [sum(zipWith (*) m1Ro
                       m1Row = getRow row (Matrix m1)
                       m2Col = getCol col (Matrix m2)
 
-addMatrix :: (Num a) => Matrix a -> Matrix a -> Matrix a
-addMatrix Nil _ = Nil
-addMatrix _ Nil = Nil
-addMatrix (Matrix m1) (Matrix m2) | r1 == r2 && c1 == c2 = Matrix (addMatrixHelper m1 m2 0)
-                  | otherwise = Nil
-                  where
-                    (r1,c1) = getDimension (Matrix m1)
-                    (r2,c2) = getDimension (Matrix m2)
-
-addMatrixHelper :: (Num a) => [[a]] -> [[a]] -> Int -> [[a]]
-addMatrixHelper m1 m2 row | row < length(m1) = [zipWith (+) m1Row m2Row] ++ addMatrixHelper m1 m2 (row+1)
-              | otherwise = []
-              where
-                m1Row = getRow row (Matrix m1)
-                m2Row = getRow row (Matrix m2)
-
-subMatrix :: (Num a) => Matrix a -> Matrix a -> Matrix a
-subMatrix Nil _ = Nil
-subMatrix _ Nil = Nil
-subMatrix (Matrix m1) (Matrix m2) = addMatrix (Matrix m1) (scalarMult (-1) (Matrix m2))
-
-
-getSublist :: [a] -> Int -> [a]
-getSublist [] _ = []
-getSublist (x:xs) skip | skip == 0 = (x:xs)
+parHelp :: ( Num a ) => [ a ] -> [ a ] -> a
+parHelp [] [] = 0
+parHelp ( x : xs ) ( y : ys ) = ret where
+        ret = par a ( pseq a ( a + parHelp xs ys ) ) where
+            a = x * y
+-- a funcao "par" incia a computacao em paralelo
+-- ja a pseq 
+--como vantagens, o programador nao necessita ter conhecimento de como ocorre a avaliacao preguiçosa nem conhecer o funcionamento do coletor do lixo para gerar paralelismo
+helpMult :: ( Num a ) => [ a ] -> [ [ a ] ] -> [ a ]
+helpMult _ [] = []
+helpMult x ( y : ys ) = ret where
+     ret =  par a ( pseq a  ( a : helpMult x ys ) ) where
+       a = parHelp x y
+mult :: ( Num a ) => [ [ a ] ] -> [ [ a ] ] -> [ [ a ] ]
+mult [] _ = []
+mult ( x : xs ) ys = ret where
+     ret = par a ( pseq a  ( a : mult xs ys ) ) where
+        a = helpMult x ys
